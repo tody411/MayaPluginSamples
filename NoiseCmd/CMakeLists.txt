@@ -9,7 +9,7 @@ project(NoiseCmd)
 # Find Maya package.
 #   - Find from latest versions: find_package(Maya REQUIRED)
 #   - Specify target version: find_package(Maya 2015)
-find_package(Maya 2015)
+find_package(Maya REQUIRED)
 
 # Set Visual Studio properties.
 include(MSVCProperties)
