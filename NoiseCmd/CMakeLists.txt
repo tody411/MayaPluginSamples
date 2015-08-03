@@ -9,6 +9,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake")
 # Project setting
 #=======================
 project(NoiseCmd)
+set(_project_SOURCE ${PROJECT_SOURCE_DIR}/src/NoiseCmd.cpp)
 
 #=======================
 # Find Maya
@@ -23,6 +24,20 @@ find_package(Maya REQUIRED)
 include(MSVCProperties)
 
 #=======================
+# Check Visual Studio versions
+#=======================
+message(STATUS "============================")
+message(STATUS "Check Visual Studio versions")
+message(STATUS "============================")
+if (${MAYA_MSVC_VERSION} STREQUAL ${MSVC_TOOL_VERSION})
+    message(STATUS "Maya Visutal Studio version == Generator setting")
+else()
+    message(WARNING "Maya Visutal Studio version != Generator setting")
+    message(STATUS "WARNING: Maya Visutal Studio version != Generator setting")
+endif()
+message(STATUS "")
+
+#=======================
 # Include setting
 #=======================
 include_directories(${MAYA_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/src)
@@ -30,7 +45,7 @@ include_directories(${MAYA_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/src)
 #=======================
 # Plug-in entry point
 #=======================
-add_library( ${PROJECT_NAME} SHARED ${PROJECT_SOURCE_DIR}/src/NoiseCmd.cpp )
+add_library( ${PROJECT_NAME} SHARED ${_project_SOURCE} )
 
 #=======================
 # Link setting
@@ -46,12 +61,12 @@ target_link_libraries( ${PROJECT_NAME}
 #=======================
 #  Project setting.
 set(_plugin_NAME ${PROJECT_NAME}${MAYA_VERSION})
-set(_plugin_DIR ${PROJECT_SOURCE_DIR}/plugins)
+set(_plugin_DIR ${CMAKE_SOURCE_DIR}/plugins)
 set_target_properties( ${PROJECT_NAME} PROPERTIES
-  OUTPUT_NAME ${PROJECT_NAME}${MAYA_VERSION}
-  RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/plugins
-  RUNTIME_OUTPUT_DIRECTORY_DEBUG ${PROJECT_SOURCE_DIR}/plugins
-  RUNTIME_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/plugins
+  OUTPUT_NAME ${_plugin_NAME}
+  RUNTIME_OUTPUT_DIRECTORY ${_plugin_DIR}
+  RUNTIME_OUTPUT_DIRECTORY_DEBUG ${_plugin_DIR}
+  RUNTIME_OUTPUT_DIRECTORY_RELEASE ${_plugin_DIR}
   CLEAN_DIRECT_OUTPUT 1
 )
 
