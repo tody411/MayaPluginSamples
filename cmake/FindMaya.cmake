@@ -17,39 +17,27 @@
 #  MAYA_EXE               Maya's executable path.
 #  MAYA_PLUGIN_SUFFIX     Maya plug-in file extension.
 #
+#  MAYA_MSVC_VERSION      Maya Visual Studio version.
+#
+#  MAYA_USER_DIR          Maya user directory.
 #
 # Macros:
 #  Maya_set_target_properties  Set target properties for the target project name.
 #                              COMPILE_DEFINITIONS, COMPILE_FLAGS, LINK_FLAGS, etc.
 #
 
+message(STATUS "============================")
+message(STATUS "FindMaya")
+message(STATUS "============================")
+
+#=======================
 # Predefined variables
+#=======================
 set(MAYA_PLUGIN_SUFFIX ".mll")
 
 #=======================
-# Macros
+# Version search list.
 #=======================
-
-# Set target properties for the target project name.
-#  - COMPILE_DEFINITIONS, COMPILE_FLAGS, LINK_FLAGS, etc.
-macro(Maya_set_target_properties target)
-    set(MAYA_COMPILE_DEFINITIONS REQUIRE_IOSTREAM _BOOL _AFXDLL _MBCS NT_PLUGIN)
-    set(MAYA_COMPILE_FLAGS "/MD")
-    set(MAYA_LINK_FLAGS "/export:initializePlugin /export:uninitializePlugin")
-
-    set_target_properties( ${target} PROPERTIES
-        COMPILE_DEFINITIONS "${MAYA_COMPILE_DEFINITIONS}"
-        COMPILE_FLAGS "${MAYA_COMPILE_FLAGS}"
-        LINK_FLAGS "${MAYA_LINK_FLAGS}"
-        PREFIX ""
-        SUFFIX ${MAYA_PLUGIN_SUFFIX}
-    )
-
-endmacro(Maya_set_target_properties)
-
-
-# Create search list for versions.
-
 set(_maya_VERSIONS)
 foreach(version RANGE 2016 2008 -1)
     list(APPEND _maya_VERSIONS "${version}")
@@ -77,11 +65,13 @@ else()
 
 endif()
 
-
-# Create search list for paths.
-
+#=======================
+# Path search list.
+#=======================
 set(_maya_SEARCH_PATHS)
 
+# Path search list from version search list.
+#-----------------------
 foreach(version ${_maya_SEARCH_VERSIONS})
     set(_maya_SEARCH_PATHS ${_maya_SEARCH_PATHS}
         "$ENV{PROGRAMFILES}/Autodesk/Maya${version}-x64"
@@ -91,7 +81,8 @@ foreach(version ${_maya_SEARCH_VERSIONS})
         "C:/Program Files (x86)/Autodesk/Maya${version}")
 endforeach(version)
 
-# Search Maya EXE path from the MAYA_LOCATION and _maya_SEARCH_PATHS.
+# Maya EXE path from the MAYA_LOCATION and _maya_SEARCH_PATHS.
+#-----------------------
 find_program(MAYA_EXE maya
     PATHS $ENV{MAYA_LOCATION} ${_maya_SEARCH_PATHS}
     PATH_SUFFIXES bin
@@ -99,11 +90,12 @@ find_program(MAYA_EXE maya
     DOC "Maya EXE")
 
 if(MAYA_EXE)
-    # obtain MAYA_LOCATION, MAYA_VERSION from MAYA_EXE.
+    # MAYA_LOCATION, MAYA_VERSION from MAYA_EXE.
     string(REGEX REPLACE "/bin/maya.*" "" MAYA_LOCATION "${MAYA_EXE}")
     string(REGEX MATCH "20[0-9][0-9]" MAYA_VERSION "${MAYA_LOCATION}")
 
 else()
+    # Failed to find Maya
     set(MAYA_LOCATION NOTFOUND)
     if(Maya_FIND_VERSION)
         message(FATAL_ERROR "Maya: failed to find version >= ${Maya_FIND_VERSION}")
@@ -115,7 +107,9 @@ endif()
 
 message(STATUS "Maya: location = ${MAYA_LOCATION}")
 
-# Visual Studio Versions
+#=======================
+# Visual Studio versions
+#=======================
 if(${MAYA_VERSION} STREQUAL "2011")
     set(MAYA_MSVC_VERSION "9")
 elseif(${MAYA_VERSION} STREQUAL "2012")
@@ -132,6 +126,9 @@ endif()
 
 message(STATUS "Maya: Visual Studio Tool Version = ${MAYA_MSVC_VERSION}")
 
+#=======================
+# Include
+#=======================
 find_path(MAYA_INCLUDE_DIRS maya/MFn.h
     HINTS ${MAYA_LOCATION}
     PATH_SUFFIXES
@@ -140,6 +137,9 @@ find_path(MAYA_INCLUDE_DIRS maya/MFn.h
 
 message(STATUS "Maya: include = ${MAYA_INCLUDE_DIRS}")
 
+#=======================
+# Library
+#=======================
 find_path(MAYA_LIBRARY_DIRS OpenMaya.lib
     HINTS ${MAYA_LOCATION}
     PATH_SUFFIXES
@@ -169,6 +169,9 @@ endforeach()
 
 # message(STATUS "Maya: libraries = ${MAYA_LIBRARIES}")
 
+#=======================
+# User directory
+#=======================
 find_path(MAYA_USER_DIR
     NAMES ${MAYA_VERSION}-x64 ${MAYA_VERSION}
     PATHS
@@ -177,10 +180,36 @@ find_path(MAYA_USER_DIR
     NO_SYSTEM_ENVIRONMENT_PATH)
 
 message(STATUS "Maya: user directory = ${MAYA_USER_DIR}")
+message(STATUS "")
 
+
+#=======================
+# Find package
+#=======================
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(Maya DEFAULT_MSG
     MAYA_LIBRARIES MAYA_EXE MAYA_INCLUDE_DIRS
     MAYA_LIBRARY_DIRS MAYA_VERSION MAYA_PLUGIN_SUFFIX
     MAYA_USER_DIR)
+
+#=======================
+# Macros
+#=======================
+# Set target properties for the target project name.
+#  - COMPILE_DEFINITIONS, COMPILE_FLAGS, LINK_FLAGS, etc.
+#-----------------------
+macro(Maya_set_target_properties target)
+    set(MAYA_COMPILE_DEFINITIONS REQUIRE_IOSTREAM _BOOL _AFXDLL _MBCS NT_PLUGIN)
+    set(MAYA_COMPILE_FLAGS "/MD")
+    set(MAYA_LINK_FLAGS "/export:initializePlugin /export:uninitializePlugin")
+
+    set_target_properties( ${target} PROPERTIES
+        COMPILE_DEFINITIONS "${MAYA_COMPILE_DEFINITIONS}"
+        COMPILE_FLAGS "${MAYA_COMPILE_FLAGS}"
+        LINK_FLAGS "${MAYA_LINK_FLAGS}"
+        PREFIX ""
+        SUFFIX ${MAYA_PLUGIN_SUFFIX}
+    )
+
+endmacro(Maya_set_target_properties)
 

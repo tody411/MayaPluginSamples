@@ -1,4 +1,21 @@
+# - Visual Studio setting from CMake generator option.
+#
+# MSVC
+#
+# Inputs:
+#  cmake -G <CMAKE_GENERATOR>    Specified generator from cmake command. e.g. "Visual Studio 11 Win64".
+#
+# Outputs:
+#  MSVC_TOOL_VERSION             Visual Studio Version. Return 11 if "Visual Studio 11 Win64".
+#  MSVC_ARCH                     Target architecture. 32: 32bit. 64: 64bit.
 
+if (MSVC)
+    message(STATUS "============================")
+    message(STATUS "Visual Studio setting")
+    message(STATUS "============================")
+else()
+    message(WARNING "Visual Studio: generator is not Visual Studio")
+endif()
 
 if(CMAKE_GENERATOR STREQUAL "Visual Studio 9 2008")
     set(MSVC_TOOL_VERSION 9)
@@ -28,3 +45,4 @@ endif()
 
 message(STATUS "Visual Studio: Tool Version = ${MSVC_TOOL_VERSION}")
 message(STATUS "Visual Studio: Architecture = ${MSVC_ARCH}")
+message(STATUS "")
