@@ -1,0 +1,2 @@
+del build/*
+del plugins/*
