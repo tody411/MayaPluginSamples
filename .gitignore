@@ -48,6 +48,7 @@ build/*
 
 # Maya plugins.
 */plugins/*
+batch/*.bat
 
 # Sublime
 *.sublime-project
@@ -55,3 +56,6 @@ build/*
 
 # Doxygen directory
 */doxygen/api_doc
+
+# Python
+*.pyc

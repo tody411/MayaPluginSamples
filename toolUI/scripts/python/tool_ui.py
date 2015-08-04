@@ -55,7 +55,7 @@ def getMllName(tool_name):
 
 ## Return the tool directory.
 def getTooRootlDir():
-    return os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    return os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 
 ## Tool load command for target plugin names and optional mel command.
@@ -99,6 +99,8 @@ def toolMenue(tool_name, plugin_names, ui_mel=None, ui_python=None):
 ## Create  Tool UI window.
 def toolUI():
     cmds.window (window_id, title='Maya Tools', menuBar=True, toolbox=True, widthHeight=[350, 80])
+    toolMenue('NoiseCmd', [getMllName('NoiseCmd')])
     toolMenue('NoiseDeformer', [getMllName('NoiseDeformer')])
     toolMenue('LaplacianSmoother',  [getMllName('LaplacianSmoother')])
     cmds.showWindow (window_id)
+
