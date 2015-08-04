@@ -1,13 +1,13 @@
 # - Find Eigen package for Windows.
 #
 # Inputs:
-#  EIGEN_LOCATION          If defined, it will be searched first for Maya location.
+#  EIGEN_LOCATION          If defined, it will be searched first for Eigen library.
 #
 # Outputs:
 #  EIGEN_FOUND             Defined if a Eigen is found.
 #  EIGEN_VERSION           Version of detected Eigen (e.g. 2015).
 #
-#  EIGEN_INCLUDE_DIRS      Path to Maya's include directories.
+#  EIGEN_INCLUDE_DIRS      Path to Eigen's include directories.
 
 message(STATUS "============================")
 message(STATUS "FindEigen")

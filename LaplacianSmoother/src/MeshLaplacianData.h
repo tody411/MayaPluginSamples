@@ -1,8 +1,7 @@
-//! MeshMeshLaplacianData class definition.
+//! Laplacian data for Maya polygon mesh.
 /*!
-    \file       MeshMeshLaplacianData.h
+    \file       MeshLaplacianData.h
     \author     Tody
-
     \date       2015/03/17
 */
 
@@ -14,7 +13,7 @@
 #include <maya/MFnMesh.h>
 #include <maya/MItMeshVertex.h>
 
-//! Laplacian data.
+//! Laplacian data for Maya polygon mesh.
 class MeshLaplacianData : public ILaplacianData
 {
 public :

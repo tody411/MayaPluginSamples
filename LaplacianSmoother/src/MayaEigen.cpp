@@ -1,11 +1,3 @@
-//! LaplacianSmoother definition.
-/*!
-  \file     MayaEigen.cpp
-  \author       Tody
-  MayaEigen definition.
-  date      2015/03/17
-*/
-
 #include "MayaEigen.h"
 
 #include <maya/MFnMesh.h>

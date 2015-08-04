@@ -1,8 +1,8 @@
-//! TimeCounter class definition.
+//! TimeCounter class.
 /*!
 \file       TimeCounter.h
 \author     Tody
-\date
+\date       2015/03/17
 */
 
 

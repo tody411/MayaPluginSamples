@@ -1,11 +1,3 @@
-//! LaplacianSmoother definition.
-/*!
-\file       LaplacianSmoother.cpp
-\author     Tody
-
-date        2014/07/06
-*/
-
 #include "LaplacianSmoother.h"
 
 #include <maya/MFnNumericAttribute.h>

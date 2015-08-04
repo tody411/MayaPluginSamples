@@ -14,6 +14,11 @@ aux_source_directory(${PROJECT_SOURCE_DIR}/src _project_SOURCE)
 # set(_project_SOURCE ${PROJECT_SOURCE_DIR}/src/InitPlugin.cpp ${_project_SOURCE})
 
 #=======================
+# Setup External Libraries
+#=======================
+include(SetupExtLibs)
+
+#=======================
 # Find Maya
 #=======================
 #  - Find from latest versions: find_package(Maya REQUIRED)
@@ -23,7 +28,7 @@ find_package(Maya REQUIRED)
 #=======================
 # Find Eigen
 #=======================
-SET(EIGEN_LOCATION "C:/Users/tody/Documents/todySVN/development/ext_lib/Eigen")
+# SET(EIGEN_LOCATION "C:/Users/tody/Documents/todySVN/development/ext_lib/Eigen")
 find_package(Eigen REQUIRED)
 
 #=======================
