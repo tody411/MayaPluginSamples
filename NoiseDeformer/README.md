@@ -10,7 +10,7 @@ This command can add noise to the selected mesh.
 
 | ![Original] (results/original.png) | ![Noise2] (results/noise_deformer.2.png) | ![Noise3] (results/noise_deformer.3.png) |
 |-------------------------|-----------------|-----------------|
-| Original mesh   | Noise mesh with $\sigma=0.005$  | Noise mesh with $\sigma=0.01$  |
+| Original mesh   | Noise mesh with sigma=0.005  | Noise mesh with sigma=0.01  |
 
 ## Usage
 
