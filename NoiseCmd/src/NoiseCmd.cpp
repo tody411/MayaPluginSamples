@@ -1,7 +1,7 @@
+//! Simple noise command plugin definition.
 /*!
 	\file     NoiseCmd.cpp
 	\author   Tody
-	Simple noise command plugin definition.
 	\date     2015/03/17
 */
 
@@ -70,7 +70,7 @@ MStatus computeNoise(const MDagPath& mesh, double sigma,  MSpace::Space space=MS
 
 	std::uniform_real_distribution<double> randPosition(-0.5 * sigma, 0.5 * sigma);
 
-	for ( ; !vertIt.isDone(); vertIt.next()) 
+	for ( ; !vertIt.isDone(); vertIt.next())
 	{
 		MVector d( randPosition(mt), randPosition(mt), randPosition(mt));
 		vertIt.translateBy(d, space);

@@ -47,3 +47,6 @@ Temporary Items
 
 # Maya plugins.
 */plugins/*
+
+# Doxygen directory
+*/doxygen/api_doc
