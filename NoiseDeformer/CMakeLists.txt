@@ -9,7 +9,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake")
 # Project setting
 #=======================
 project(NoiseDeformer)
-aux_source_directory(${PROJECT_SOURCE_DIR}/src _project_SOURCE)
+file(GLOB _project_SOURCE ${PROJECT_SOURCE_DIR}/src/*.h ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 #=======================
 # Find Maya

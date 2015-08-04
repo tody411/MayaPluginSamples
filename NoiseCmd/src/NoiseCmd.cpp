@@ -1,8 +1,14 @@
-//! Simple noise command plugin definition.
+//! Simple noise command plug-in definition.
 /*!
 	\file     NoiseCmd.cpp
 	\author   Tody
 	\date     2015/03/17
+
+	Usage:
+	MEL:    NoiseCmd <sigma>;
+    Python: cmds.NoiseCmd( <sigma> );
+
+    <sigma>: noise parameter.
 */
 
 #include <maya/MIOStream.h>
@@ -21,7 +27,7 @@
 //! This function will automatically create NoiseCmd class and register the plugin.
 DeclareSimpleCommand( NoiseCmd, "SimplePlugin", "1.0");
 
-//! Get seleted dag list.
+//! Get selected dag list.
 /*!
 	\param dagList selected dag list.
 	\param filter  target API types. kMesh | kLight | ...
@@ -53,10 +59,10 @@ MStatus getSelectedMeshList(MDagPathArray& meshList)
 	return getSelectedDagList( meshList, MFn::kMesh );
 }
 
-//! Compute noise for target mesh with paramter sigma.
+//! Compute noise for target mesh with parameter sigma.
 /*!
 	\param mesh		target mesh.
-	\param sigma	noise paramter.
+	\param sigma	noise parameter.
 	\param space	target space. kObject | kWorld | kTransform | ...
 
 	Random position will be compute with std::uniform_real_distribution method.
