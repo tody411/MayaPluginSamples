@@ -1,5 +1,5 @@
 
-Maya Plug-in Samples (Windows)
+Maya Plug-in Samples (C++, Windows)
 ====
 
 Simple Maya plug-in samples to test build environments on Windows.
