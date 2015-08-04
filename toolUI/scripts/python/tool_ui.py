@@ -1,8 +1,7 @@
-
 # -*- coding: utf-8 -*-
 ## @package tool_ui
 #
-#  Plug-in tools utility functions.
+#  Provide plug-in tool GUI.
 #  @author      Tody
 #  @date        2015/03/18
 
@@ -20,7 +19,7 @@ window_id = 'ToolWindow'
 
 ## Return Maya Version.
 #
-#  @return [version, architecture] e.g. ["2015", "64"] means Maya 2015 64bit.
+#  @return [version, architecture] e.g. ["2015", "64"] means Maya 2015 64-bit.
 def mayaVersion():
     res = ["", ""]
     architecture = "32";
@@ -43,7 +42,7 @@ def mayaVersion():
     return res
 
 
-## Return Maya plugin file name for target toolName.
+## Return Maya plug-in file name for target toolName.
 #
 #  @return pluginFileName    examples: NoiseDeformer2014.mll (tool name "NoiseDeformer", Maya 2014)
 def getMllName(tool_name):
@@ -58,9 +57,9 @@ def getTooRootlDir():
     return os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 
-## Tool load command for target plugin names and optional mel command.
+## Tool load command for target plug-in names and optional mel command.
 #
-#   @param    plugin_names    [plugin_name1, plugin_name2, ...] list of plugin names.
+#   @param    plugin_names    [plugin_name1, plugin_name2, ...] list of plug-in names.
 #   @param    ui_mel           Mel command to launch tool UI.
 #   @param    ui_python        Python command to launch tool UI.
 def toolLoadCmd(plugin_names, ui_mel=None, ui_python=None):
@@ -76,7 +75,7 @@ def toolLoadCmd(plugin_names, ui_mel=None, ui_python=None):
 
 ## Create tool menue for target tool.
 #  @param    tool_name       target tool name.
-#  @param    plugin_names    target plugin names which will be loaded.
+#  @param    plugin_names    target plug-in names which will be loaded.
 #  @param    ui_mel          Mel command to launch tool UI.
 def toolMenue(tool_name, plugin_names, ui_mel=None, ui_python=None):
     tool_root_dir = getTooRootlDir()
@@ -96,7 +95,7 @@ def toolMenue(tool_name, plugin_names, ui_mel=None, ui_python=None):
     print '------------------'
 
 
-## Create  Tool UI window.
+## Create  Tool UI.
 def toolUI():
     cmds.window (window_id, title='Maya Tools', menuBar=True, toolbox=True, widthHeight=[350, 80])
     toolMenue('NoiseCmd', [getMllName('NoiseCmd')])

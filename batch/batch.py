@@ -1,7 +1,7 @@
 ﻿# -*- coding: utf-8 -*-
 ## @package batch
 #
-#  Generate batch files.
+#  Generate Maya batch files for testing plug-ins.
 #  @author      Tody
 #  @date        2015/03/18
 
