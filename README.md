@@ -132,7 +132,7 @@ Each bath set the following Maya environment variables for the projects before l
 * `PYTHONPATH`: `${PROJECT_NAME}/scripts/python`
 * `XBMLANGPATH`: `${PROJECT_NAME}/scripts/icons`
 
-Finally, the batch launches Maya with the language setting.
+Finally, the batch launches Maya with a target language setting.
 
 ``` bash
   > set MAYA_UI_LANGUAGE=en_US
@@ -142,14 +142,21 @@ Finally, the batch launches Maya with the language setting.
 ## Usage
 
 1. Launch Maya from a batch file in the batch directory. e.g. `batch/Maya2015_EN.bat`.
-2. Paste the command in the Maya Python script editor.
+2. Paste the command in the Maya **Python** script editor.
 
 ``` python
+# Create tool UI for plug-ins.
 import tool_ui
 tool_ui.toolUI()
 ```
 
 You can easily access the Load Plug-in command from the UI.
+For more details of the usage about each plug-in,
+please see the README in the project directory.
+
+* [**NoiseCmd**](NoiseCmd).
+* [**NoiseDeformer**](NoiseDeformer).
+* [**LaplacianSmoother**](LaplacianSmoother).
 
 ## License
 
