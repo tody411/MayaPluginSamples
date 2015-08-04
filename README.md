@@ -101,7 +101,7 @@ Using the same version is highly recommended for stable running.
   > cmake --build ./build --config Release
 ```
 
-**`${PROJECT_NAME}${MAYA_VERSION}.mll`** will be build in the plugins directory.
+**`${PROJECT_NAME}${MAYA_VERSION}.mll`** will be built in the `plugins` directory.
 
 #### 4.Build all plug-in files.
 
@@ -112,13 +112,13 @@ I also provide the same CMake mechanism from the root directory.
 
 #### 5.Generate test batches.
 
-From batch directory, please run batch.py.
+From batch directory, please run `batch.py`.
 
 ``` bash
   > python batch.py
 ```
 
-This module will generate test batch files (e.g. Maya2015_EN.bat) to configure built plug-in files in Maya environment variables.
+This module will generate test batch files (e.g. `Maya2015_EN.bat`) to configure built plug-in files in Maya environment variables.
 Each bath set the following Maya environment variables for the projects before launching Maya.
 
 * `MAYA_PLUG_IN_PATH`: `${PROJECT_NAME}/plugins`
