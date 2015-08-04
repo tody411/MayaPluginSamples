@@ -15,7 +15,7 @@ import maya.mel as mel
 
 
 ## Window UI ID.
-window_id = 'ToolsWindow'
+window_id = 'ToolWindow'
 
 
 ## Return Maya Version.
@@ -96,7 +96,7 @@ def toolMenue(tool_name, plugin_names, ui_mel=None, ui_python=None):
     print '------------------'
 
 
-## Create  Tools UI window.
+## Create  Tool UI window.
 def toolUI():
     cmds.window (window_id, title='Maya Tools', menuBar=True, toolbox=True, widthHeight=[350, 80])
     toolMenue('NoiseDeformer', [getMllName('NoiseDeformer')])

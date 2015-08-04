@@ -22,9 +22,9 @@
 #  MAYA_USER_DIR          Maya user directory.
 #
 # Macros:
-#  Maya_set_target_properties  Set target properties for the target project name.
-#                              COMPILE_DEFINITIONS, COMPILE_FLAGS, LINK_FLAGS, etc.
-#
+#  Maya_set_target_properties   Set target properties for the target project name.
+#  Maya_set_compile_properties  Set compile properties for the target project name.
+#  Maya_set_output_properties   Set output properties for the target project name.
 
 message(STATUS "============================")
 message(STATUS "FindMaya")
@@ -195,10 +195,9 @@ find_package_handle_standard_args(Maya DEFAULT_MSG
 #=======================
 # Macros
 #=======================
-# Set target properties for the target project name.
-#  - COMPILE_DEFINITIONS, COMPILE_FLAGS, LINK_FLAGS, etc.
+# Set compile properties for the target project name.
 #-----------------------
-macro(Maya_set_target_properties target)
+macro(Maya_set_compile_properties target)
     set(MAYA_COMPILE_DEFINITIONS REQUIRE_IOSTREAM _BOOL _AFXDLL _MBCS NT_PLUGIN)
     set(MAYA_COMPILE_FLAGS "/MD")
     set(MAYA_LINK_FLAGS "/export:initializePlugin /export:uninitializePlugin")
@@ -210,6 +209,33 @@ macro(Maya_set_target_properties target)
         PREFIX ""
         SUFFIX ${MAYA_PLUGIN_SUFFIX}
     )
+endmacro(Maya_set_compile_properties)
 
+# Set output properties for the target project name.
+#-----------------------
+macro(Maya_set_output_properties target)
+    set(_plugin_NAME ${target}${MAYA_VERSION})
+    set(_plugin_DIR ${PROJECT_SOURCE_DIR}/plugins)
+    set_target_properties( ${target} PROPERTIES
+        OUTPUT_NAME ${_plugin_NAME}
+        RUNTIME_OUTPUT_DIRECTORY ${_plugin_DIR}
+        RUNTIME_OUTPUT_DIRECTORY_DEBUG ${_plugin_DIR}
+        RUNTIME_OUTPUT_DIRECTORY_RELEASE ${_plugin_DIR}
+        CLEAN_DIRECT_OUTPUT 1
+    )
+
+    message(STATUS "============================")
+    message(STATUS "Output setting")
+    message(STATUS "============================")
+    message(STATUS "Output: project name = ${target}")
+    message(STATUS "Output: plug-in name = ${_plugin_NAME}${MAYA_PLUGIN_SUFFIX}")
+    message(STATUS "Output: output directory = ${_plugin_DIR}")
+    message(STATUS "")
+endmacro(Maya_set_output_properties)
+
+# Set target properties for the target project name.
+#-----------------------
+macro(Maya_set_target_properties target)
+    Maya_set_output_properties(${target})
+    Maya_set_compile_properties(${target})
 endmacro(Maya_set_target_properties)
-

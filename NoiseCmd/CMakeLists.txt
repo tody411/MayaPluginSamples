@@ -57,27 +57,6 @@ target_link_libraries( ${PROJECT_NAME}
 )
 
 #=======================
-# Output setting
-#=======================
-#  Project setting.
-set(_plugin_NAME ${PROJECT_NAME}${MAYA_VERSION})
-set(_plugin_DIR ${CMAKE_SOURCE_DIR}/plugins)
-set_target_properties( ${PROJECT_NAME} PROPERTIES
-  OUTPUT_NAME ${_plugin_NAME}
-  RUNTIME_OUTPUT_DIRECTORY ${_plugin_DIR}
-  RUNTIME_OUTPUT_DIRECTORY_DEBUG ${_plugin_DIR}
-  RUNTIME_OUTPUT_DIRECTORY_RELEASE ${_plugin_DIR}
-  CLEAN_DIRECT_OUTPUT 1
-)
-
-message(STATUS "============================")
-message(STATUS "Project setting")
-message(STATUS "============================")
-message(STATUS "Project: project name = ${PROJECT_NAME}")
-message(STATUS "Project: plug-in name = ${_plugin_NAME}${MAYA_PLUGIN_SUFFIX}")
-message(STATUS "Project: output directory = ${_plugin_DIR}")
-message(STATUS "")
-
 # Maya Plug-in settings.
-#   - COMPILE_DEFINITIONS, COMPILE_FLAGS, LINK_FLAGS, etc.
+#=======================
 Maya_set_target_properties( ${PROJECT_NAME} )

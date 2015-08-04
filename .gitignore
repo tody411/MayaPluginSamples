@@ -44,9 +44,14 @@ Temporary Items
 
 # CMake files
 */build/*
+build/*
 
 # Maya plugins.
 */plugins/*
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
 
 # Doxygen directory
 */doxygen/api_doc
