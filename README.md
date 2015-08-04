@@ -47,9 +47,9 @@ Each project can be easily build with CMake (version 3.0.0 or higher).
 
 #### 1.External libraries.
 * Maya: [cmake/FindMaya.cmake](cmake/FindMaya.cmake) will find the Maya include and library directories.
-    - *Note*: Assume default installation path. (e.g. C:/Program Files/Autodesk/Maya${version})
+    - *Note*: Assume the default installation path. (e.g. C:/Program Files/Autodesk/Maya${version})
 * Eigen: [cmake/FindEigen.cmake](cmake/FindEigen.cmake)
-    - *Note*: Assume an installation path $ENV{EXT\_LIB\_ROOT}/Eigen/${EIGEN\_VERSION}/include.
+    - *Note*: Assume "$ENV{EXT\_LIB\_ROOT}/Eigen/${EIGEN\_VERSION}/include" for the installation path.
 
 #### 2.Generate a Visual Studio solution with the following command.
 
