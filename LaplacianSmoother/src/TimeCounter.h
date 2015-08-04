@@ -1,3 +1,11 @@
+//! TimeCounter class definition.
+/*!
+\file       TimeCounter.h
+\author     Tody
+\date
+*/
+
+
 #ifndef TIMECOUNTER_H
 #define TIMECOUNTER_H
 
@@ -9,58 +17,58 @@
 class TimeCounter
 {
 public:
-	//! Constructor.
-	TimeCounter(const std::string& name)
-		: last_start(0), running(false), elapsed(0), name(name)
-	{
-		start();
-	}
+    //! Constructor.
+    TimeCounter ( const std::string& name )
+        : last_start ( 0 ), running ( false ), elapsed ( 0 ), name ( name )
+    {
+        start();
+    }
 
-	//! Destructor.
-	virtual ~TimeCounter(){}
+    //! Destructor.
+    virtual ~TimeCounter() {}
 
-	//! Set the name of the counter.
-	void setName(const std::string& name);
+    //! Set the name of the counter.
+    void setName ( const std::string& name );
 
-	//! Return the name of the counter.
-	const std::string& getName() const;
+    //! Return the name of the counter.
+    const std::string& getName() const;
 
-	//! Get elapsed time.
-	double getElapsedTime();
+    //! Get elapsed time.
+    double getElapsedTime();
 
-	//! Return if the counter is running or not.
-	bool isRunning();
-	
-	//! Start the counter.
-	void start();
+    //! Return if the counter is running or not.
+    bool isRunning();
 
-	//! Stop without reseting
-	double pause();
+    //! Start the counter.
+    void start();
 
-	//! Rest the counter.
-	/*!
-		\return elapsed time before reset.
-	*/
-	double reset();
+    //! Stop without reseting
+    double pause();
 
-	//! Output string for the counter.
-	/*!
-		Output will be "name: ...[sec]"
-	*/
-	friend std::ostream& operator<< (std::ostream &out, TimeCounter &counter); 
+    //! Rest the counter.
+    /*!
+        \return elapsed time before reset.
+    */
+    double reset();
+
+    //! Output string for the counter.
+    /*!
+        Output will be "name: ...[sec]"
+    */
+    friend std::ostream& operator<< ( std::ostream& out, TimeCounter& counter );
 
 private:
-	//! Name of the counter.
-	std::string name;
+    //! Name of the counter.
+    std::string name;
 
-	//! Time elapsed in seconds.
-	double elapsed;
+    //! Time elapsed in seconds.
+    double elapsed;
 
-	//! Return if the counter is started or not.
-	bool running;
+    //! Return if the counter is started or not.
+    bool running;
 
-	//! Clock value at start. 
-	long last_start;
+    //! Clock value at start.
+    long last_start;
 
 };
 

@@ -1,2 +1,2 @@
-del build/*
-del plugins/*
+rm -f -r build/*
+rm -f -r plugins/*

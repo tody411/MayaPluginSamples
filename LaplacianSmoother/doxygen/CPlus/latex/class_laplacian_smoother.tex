@@ -1,0 +1,87 @@
+\hypertarget{class_laplacian_smoother}{\section{Laplacian\+Smoother Class Reference}
+\label{class_laplacian_smoother}\index{Laplacian\+Smoother@{Laplacian\+Smoother}}
+}
+
+
+\hyperlink{class_laplacian_smoother}{Laplacian\+Smoother} implementation.  
+
+
+
+
+{\ttfamily \#include $<$Laplacian\+Smoother.\+h$>$}
+
+Inheritance diagram for Laplacian\+Smoother\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_laplacian_smoother}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_laplacian_smoother_abf02c86745e5c99a043ec0ac4974e5d5}{\hyperlink{class_laplacian_smoother_abf02c86745e5c99a043ec0ac4974e5d5}{Laplacian\+Smoother} ()}\label{class_laplacian_smoother_abf02c86745e5c99a043ec0ac4974e5d5}
+
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_laplacian_smoother_ac7c1d554540a1168f7e2d76e003dadfb}{virtual \hyperlink{class_laplacian_smoother_ac7c1d554540a1168f7e2d76e003dadfb}{$\sim$\+Laplacian\+Smoother} ()}\label{class_laplacian_smoother_ac7c1d554540a1168f7e2d76e003dadfb}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+M\+Status \hyperlink{class_laplacian_smoother_aa7c21d1acfef33eefbd020c959fa1eb0}{compute} (const M\+Plug \&plug, M\+Data\+Block \&data\+Block)
+\begin{DoxyCompactList}\small\item\em Compute function to deform. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \hyperlink{class_laplacian_smoother_a4775db7de0fe100ce7424b075cc88dcb}{creator} ()
+\begin{DoxyCompactList}\small\item\em Create a new \hyperlink{class_laplacian_smoother}{Laplacian\+Smoother} instance. \end{DoxyCompactList}\item 
+\hypertarget{class_laplacian_smoother_a6c5627afc523a4b436b167996db932ad}{static M\+Status \hyperlink{class_laplacian_smoother_a6c5627afc523a4b436b167996db932ad}{initialize} ()}\label{class_laplacian_smoother_a6c5627afc523a4b436b167996db932ad}
+
+\begin{DoxyCompactList}\small\item\em Initializes the node attributes. \end{DoxyCompactList}\item 
+\hypertarget{class_laplacian_smoother_a25f65e19e2b3953b850e2b246a7ff072}{static M\+String \hyperlink{class_laplacian_smoother_a25f65e19e2b3953b850e2b246a7ff072}{get\+Maya\+Name} ()}\label{class_laplacian_smoother_a25f65e19e2b3953b850e2b246a7ff072}
+
+\begin{DoxyCompactList}\small\item\em Returns the type name of this node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_laplacian_smoother_ab0803d4ade46ef489b64beb6114eb584}{static M\+Type\+Id \hyperlink{class_laplacian_smoother_ab0803d4ade46ef489b64beb6114eb584}{id}}\label{class_laplacian_smoother_ab0803d4ade46ef489b64beb6114eb584}
+
+\begin{DoxyCompactList}\small\item\em type I\+D of the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_laplacian_smoother}{Laplacian\+Smoother} implementation. 
+
+argmin\+\_\+\+S $\vert$\+P -\/ S$\vert$$^\wedge$2 +  $\vert$ L S $\vert$$^\wedge$2
+
+M = Lt L S = (I +  M)$^\wedge$\{-\/1\} P
+
+M\+E\+L\+: deformer -\/type \hyperlink{class_laplacian_smoother}{Laplacian\+Smoother}; Python\+: cmds.\+deformer( type=\char`\"{}\+Laplacian\+Smoother\char`\"{} ); 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_laplacian_smoother_aa7c21d1acfef33eefbd020c959fa1eb0}{\index{Laplacian\+Smoother@{Laplacian\+Smoother}!compute@{compute}}
+\index{compute@{compute}!Laplacian\+Smoother@{Laplacian\+Smoother}}
+\subsubsection[{compute}]{\setlength{\rightskip}{0pt plus 5cm}M\+Status Laplacian\+Smoother\+::compute (
+\begin{DoxyParamCaption}
+\item[{const M\+Plug \&}]{plug, }
+\item[{M\+Data\+Block \&}]{data\+Block}
+\end{DoxyParamCaption}
+)}}\label{class_laplacian_smoother_aa7c21d1acfef33eefbd020c959fa1eb0}
+
+
+Compute function to deform. 
+
+If you want to access mesh structure from the deformer, you need to implement compute function replacing with deform function. \hypertarget{class_laplacian_smoother_a4775db7de0fe100ce7424b075cc88dcb}{\index{Laplacian\+Smoother@{Laplacian\+Smoother}!creator@{creator}}
+\index{creator@{creator}!Laplacian\+Smoother@{Laplacian\+Smoother}}
+\subsubsection[{creator}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Laplacian\+Smoother\+::creator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_laplacian_smoother_a4775db7de0fe100ce7424b075cc88dcb}
+
+
+Create a new \hyperlink{class_laplacian_smoother}{Laplacian\+Smoother} instance. 
+
+! Create a new \hyperlink{class_laplacian_smoother}{Laplacian\+Smoother} instance. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tody/\+Documents/\+Git\+Hub/\+Maya\+Plugin\+Samples/\+Laplacian\+Smoother/src/\hyperlink{_laplacian_smoother_8h}{Laplacian\+Smoother.\+h}\item 
+C\+:/\+Users/tody/\+Documents/\+Git\+Hub/\+Maya\+Plugin\+Samples/\+Laplacian\+Smoother/src/\hyperlink{_laplacian_smoother_8cpp}{Laplacian\+Smoother.\+cpp}\end{DoxyCompactItemize}

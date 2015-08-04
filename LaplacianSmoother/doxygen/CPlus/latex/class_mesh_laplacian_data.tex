@@ -1,0 +1,93 @@
+\hypertarget{class_mesh_laplacian_data}{\section{Mesh\+Laplacian\+Data Class Reference}
+\label{class_mesh_laplacian_data}\index{Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}}
+}
+
+
+Laplacian data.  
+
+
+
+
+{\ttfamily \#include $<$Mesh\+Laplacian\+Data.\+h$>$}
+
+Inheritance diagram for Mesh\+Laplacian\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mesh_laplacian_data}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mesh_laplacian_data_a5f57380117063fed3c758070836deed8}{Mesh\+Laplacian\+Data} (const M\+Dag\+Path \&geometry\+Path)
+\item 
+\hyperlink{class_mesh_laplacian_data_a0baa5e645b1f92cbd77094d9e8fe371b}{Mesh\+Laplacian\+Data} (const M\+Object \&geometry\+Object)
+\item 
+\hypertarget{class_mesh_laplacian_data_a226a9e35ed02adcc11ea372bdaa5da1a}{virtual \hyperlink{class_mesh_laplacian_data_a226a9e35ed02adcc11ea372bdaa5da1a}{$\sim$\+Mesh\+Laplacian\+Data} ()}\label{class_mesh_laplacian_data_a226a9e35ed02adcc11ea372bdaa5da1a}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+const Eigen\+::\+Sparse\+Matrix$<$ double $>$ \hyperlink{class_mesh_laplacian_data_a9efe80838593c46fac7baa77ef506559}{Get\+Laplacian\+Matrix} (int num\+Functions=3)
+\begin{DoxyCompactList}\small\item\em Get Laplacian data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Laplacian data. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_mesh_laplacian_data_a5f57380117063fed3c758070836deed8}{\index{Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}!Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}}
+\index{Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}!Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}}
+\subsubsection[{Mesh\+Laplacian\+Data}]{\setlength{\rightskip}{0pt plus 5cm}Mesh\+Laplacian\+Data\+::\+Mesh\+Laplacian\+Data (
+\begin{DoxyParamCaption}
+\item[{const M\+Dag\+Path \&}]{geometry\+Path}
+\end{DoxyParamCaption}
+)}}\label{class_mesh_laplacian_data_a5f57380117063fed3c758070836deed8}
+
+\begin{DoxyParams}{Parameters}
+{\em geometry\+Path} & target geometry dag path \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_mesh_laplacian_data_a0baa5e645b1f92cbd77094d9e8fe371b}{\index{Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}!Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}}
+\index{Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}!Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}}
+\subsubsection[{Mesh\+Laplacian\+Data}]{\setlength{\rightskip}{0pt plus 5cm}Mesh\+Laplacian\+Data\+::\+Mesh\+Laplacian\+Data (
+\begin{DoxyParamCaption}
+\item[{const M\+Object \&}]{geometry\+Object}
+\end{DoxyParamCaption}
+)}}\label{class_mesh_laplacian_data_a0baa5e645b1f92cbd77094d9e8fe371b}
+
+\begin{DoxyParams}{Parameters}
+{\em geometry\+Object} & target geometry object \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_mesh_laplacian_data_a9efe80838593c46fac7baa77ef506559}{\index{Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}!Get\+Laplacian\+Matrix@{Get\+Laplacian\+Matrix}}
+\index{Get\+Laplacian\+Matrix@{Get\+Laplacian\+Matrix}!Mesh\+Laplacian\+Data@{Mesh\+Laplacian\+Data}}
+\subsubsection[{Get\+Laplacian\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}const Eigen\+::\+Sparse\+Matrix$<$ double $>$ Mesh\+Laplacian\+Data\+::\+Get\+Laplacian\+Matrix (
+\begin{DoxyParamCaption}
+\item[{int}]{num\+Functions = {\ttfamily 3}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_mesh_laplacian_data_a9efe80838593c46fac7baa77ef506559}
+
+
+Get Laplacian data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Functions} & the number of functions (e.\+g. 3 for point xyz.) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Laplacian\+Matrix output Laplacian matrix data. Eigen\+::\+Sparse\+Matrix$<$double$>$ type. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_i_laplacian_data_ae5d1999d7e077fae5e415ce811d71dba}{I\+Laplacian\+Data}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tody/\+Documents/\+Git\+Hub/\+Maya\+Plugin\+Samples/\+Laplacian\+Smoother/src/Mesh\+Laplacian\+Data.\+h\item 
+C\+:/\+Users/tody/\+Documents/\+Git\+Hub/\+Maya\+Plugin\+Samples/\+Laplacian\+Smoother/src/Mesh\+Laplacian\+Data.\+cpp\end{DoxyCompactItemize}

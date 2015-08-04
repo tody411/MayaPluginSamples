@@ -1,0 +1,101 @@
+\hypertarget{class_i_laplacian_data}{\section{I\+Laplacian\+Data Class Reference}
+\label{class_i_laplacian_data}\index{I\+Laplacian\+Data@{I\+Laplacian\+Data}}
+}
+
+
+Interface class for Laplacian data.  
+
+
+
+
+{\ttfamily \#include $<$I\+Laplacian\+Data.\+h$>$}
+
+Inheritance diagram for I\+Laplacian\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_laplacian_data}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_i_laplacian_data_a71e44bc645284129993f1563e199df2d}{I\+Laplacian\+Data} (const M\+Dag\+Path \&geometry\+Path)
+\item 
+\hyperlink{class_i_laplacian_data_a34b9877ebb8024d518dd0c47e48f99fa}{I\+Laplacian\+Data} (const M\+Object \&geometry\+Object)
+\item 
+\hypertarget{class_i_laplacian_data_a2664db9f1fefe4cbc8415ef9f90bfe60}{virtual \hyperlink{class_i_laplacian_data_a2664db9f1fefe4cbc8415ef9f90bfe60}{$\sim$\+I\+Laplacian\+Data} ()}\label{class_i_laplacian_data_a2664db9f1fefe4cbc8415ef9f90bfe60}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual const \\*
+Eigen\+::\+Sparse\+Matrix$<$ double $>$ \hyperlink{class_i_laplacian_data_ae5d1999d7e077fae5e415ce811d71dba}{Get\+Laplacian\+Matrix} (int num\+Functions=3)=0
+\begin{DoxyCompactList}\small\item\em Get Laplacian data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_i_laplacian_data_a9e9b48a29dff036d051ed7aa82aa0e88}{M\+Object \hyperlink{class_i_laplacian_data_a9e9b48a29dff036d051ed7aa82aa0e88}{\+\_\+geometry\+Object}}\label{class_i_laplacian_data_a9e9b48a29dff036d051ed7aa82aa0e88}
+
+\begin{DoxyCompactList}\small\item\em Target geometry objet. \end{DoxyCompactList}\item 
+\hypertarget{class_i_laplacian_data_addd290ef0f5373d84197af5d357cc52c}{M\+Dag\+Path \hyperlink{class_i_laplacian_data_addd290ef0f5373d84197af5d357cc52c}{\+\_\+geometry\+Path}}\label{class_i_laplacian_data_addd290ef0f5373d84197af5d357cc52c}
+
+\begin{DoxyCompactList}\small\item\em Target geometry dag path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface class for Laplacian data. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_i_laplacian_data_a71e44bc645284129993f1563e199df2d}{\index{I\+Laplacian\+Data@{I\+Laplacian\+Data}!I\+Laplacian\+Data@{I\+Laplacian\+Data}}
+\index{I\+Laplacian\+Data@{I\+Laplacian\+Data}!I\+Laplacian\+Data@{I\+Laplacian\+Data}}
+\subsubsection[{I\+Laplacian\+Data}]{\setlength{\rightskip}{0pt plus 5cm}I\+Laplacian\+Data\+::\+I\+Laplacian\+Data (
+\begin{DoxyParamCaption}
+\item[{const M\+Dag\+Path \&}]{geometry\+Path}
+\end{DoxyParamCaption}
+)}}\label{class_i_laplacian_data_a71e44bc645284129993f1563e199df2d}
+
+\begin{DoxyParams}{Parameters}
+{\em geometry\+Path} & target geometry dag path \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_i_laplacian_data_a34b9877ebb8024d518dd0c47e48f99fa}{\index{I\+Laplacian\+Data@{I\+Laplacian\+Data}!I\+Laplacian\+Data@{I\+Laplacian\+Data}}
+\index{I\+Laplacian\+Data@{I\+Laplacian\+Data}!I\+Laplacian\+Data@{I\+Laplacian\+Data}}
+\subsubsection[{I\+Laplacian\+Data}]{\setlength{\rightskip}{0pt plus 5cm}I\+Laplacian\+Data\+::\+I\+Laplacian\+Data (
+\begin{DoxyParamCaption}
+\item[{const M\+Object \&}]{geometry\+Object}
+\end{DoxyParamCaption}
+)}}\label{class_i_laplacian_data_a34b9877ebb8024d518dd0c47e48f99fa}
+
+\begin{DoxyParams}{Parameters}
+{\em geometry\+Object} & target geometry object \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_i_laplacian_data_ae5d1999d7e077fae5e415ce811d71dba}{\index{I\+Laplacian\+Data@{I\+Laplacian\+Data}!Get\+Laplacian\+Matrix@{Get\+Laplacian\+Matrix}}
+\index{Get\+Laplacian\+Matrix@{Get\+Laplacian\+Matrix}!I\+Laplacian\+Data@{I\+Laplacian\+Data}}
+\subsubsection[{Get\+Laplacian\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual const Eigen\+::\+Sparse\+Matrix$<$double$>$ I\+Laplacian\+Data\+::\+Get\+Laplacian\+Matrix (
+\begin{DoxyParamCaption}
+\item[{int}]{num\+Functions = {\ttfamily 3}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_i_laplacian_data_ae5d1999d7e077fae5e415ce811d71dba}
+
+
+Get Laplacian data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Functions} & the number of functions (e.\+g. 3 for point xyz.) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Laplacian\+Matrix output Laplacian matrix data. Eigen\+::\+Sparse\+Matrix$<$double$>$ type. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_mesh_laplacian_data_a9efe80838593c46fac7baa77ef506559}{Mesh\+Laplacian\+Data}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tody/\+Documents/\+Git\+Hub/\+Maya\+Plugin\+Samples/\+Laplacian\+Smoother/src/I\+Laplacian\+Data.\+h\end{DoxyCompactItemize}
