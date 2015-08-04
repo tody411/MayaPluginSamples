@@ -6,7 +6,7 @@ Simple noise node (deformer plug-in).
 
 ## Result
 
-This command can add noise to the selected mesh.
+This node can add noise to the selected mesh.
 
 | ![Original] (results/original.png) | ![Noise2] (results/noise_deformer.2.png) | ![Noise3] (results/noise_deformer.3.png) |
 |-------------------------|-----------------|-----------------|

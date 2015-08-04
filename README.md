@@ -4,13 +4,19 @@ Maya Plug-in Samples (C++, Windows)
 
 Simple Maya plug-in samples to test build environments on Windows.
 
-* **NoiseCmd** : Simple noise command (command plug-in).
-* **NoiseDeformer**: Simple noise node (deformer plug-in).
-* **LaplacianSmoother**: Laplacian smoothing node (deformer plug-in).
+* [**NoiseCmd**](NoiseCmd/README.md) : Simple noise command (command plug-in).
+* [**NoiseDeformer**](NoiseDeformer/README.md): Simple noise node (deformer plug-in).
+* [**LaplacianSmoother**](LaplacianSmoother/README.md): Laplacian smoothing node (deformer plug-in).
     - *Required*: [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page) library.
 
 ## Result
-*Status*: Under construction.
+1. Load original mesh
+2. Add noise to the mesh with NoiseDeformer
+3. Smooth mesh with LaplacianSmoother
+
+| ![LaplacianSmoother1] (LaplacianSmoother/results/laplacian_smoother.1.png) | ![LaplacianSmoother2] (LaplacianSmoother/results/laplacian_smoother.2.png) | ![LaplacianSmoother3] (LaplacianSmoother/results/laplacian_smoother.3.png) |![LaplacianSmoother4] (LaplacianSmoother/results/laplacian_smoother.4.png) |
+|-------------------------|-----------------|-----------------|----------------|
+| Original mesh   | NoiseDeformer  | LaplacianSmoother (weak smoothing)  |LaplacianSmoother (strong smoothing)  |
 
 ## Installation
 
