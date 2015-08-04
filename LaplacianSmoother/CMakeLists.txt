@@ -9,9 +9,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake")
 # Project setting
 #=======================
 project(LaplacianSmoother)
-# set(_project_SOURCE ${PROJECT_SOURCE_DIR}/src/InitPlugin.cpp)
 aux_source_directory(${PROJECT_SOURCE_DIR}/src _project_SOURCE)
-# set(_project_SOURCE ${PROJECT_SOURCE_DIR}/src/InitPlugin.cpp ${_project_SOURCE})
 
 #=======================
 # Setup External Libraries
@@ -28,7 +26,6 @@ find_package(Maya REQUIRED)
 #=======================
 # Find Eigen
 #=======================
-# SET(EIGEN_LOCATION "C:/Users/tody/Documents/todySVN/development/ext_lib/Eigen")
 find_package(Eigen REQUIRED)
 
 #=======================
@@ -58,7 +55,7 @@ include_directories(${MAYA_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIRS} ${PROJECT_SOURCE_
 #=======================
 # Plug-in entry point
 #=======================
-add_library( ${PROJECT_NAME} SHARED ${_project_SOURCE} )
+add_library(${PROJECT_NAME} SHARED ${_project_SOURCE} )
 
 #=======================
 # Link setting
@@ -66,8 +63,8 @@ add_library( ${PROJECT_NAME} SHARED ${_project_SOURCE} )
 #  - Link all libraries: MAYA_LIBRARIES
 #  - Link target libraries: MAYA_Foundation_LIBRARY, MAYA_OpenMaya_LIBRARY, etc.
 target_link_libraries( ${PROJECT_NAME}
-   ${MAYA_LIBRARIES}
-   #${MAYA_Foundation_LIBRARY} ${MAYA_OpenMaya_LIBRARY} ${MAYA_OpenMayaUI_LIBRARY}
+   #${MAYA_LIBRARIES}
+   ${MAYA_Foundation_LIBRARY} ${MAYA_OpenMaya_LIBRARY} ${MAYA_OpenMayaUI_LIBRARY} ${MAYA_OpenMayaAnim_LIBRARY}
 )
 
 #=======================

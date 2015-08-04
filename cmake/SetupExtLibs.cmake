@@ -31,6 +31,7 @@ macro(_set_lib_location  target)
     DOC "${_lib_LOCATION_NAME}")
 
     if (${_lib_LOCATION_NAME})
+        set(${_lib_LOCATION_NAME} $ENV{EXT_LIB_ROOT}/${target})
         message(STATUS "${_lib_LOCATION_NAME} = ${${_lib_LOCATION_NAME}}")
     else ()
         set(_lib_LOCATION $ENV{EXT_LIB_ROOT}/${target})
@@ -52,7 +53,7 @@ message(STATUS "EXT_LIB_ROOT = $ENV{EXT_LIB_ROOT}")
 
 _set_lib_location(Eigen)
 _set_lib_location(OpenMesh)
-_set_lib_location(HogeHoge)
+
 message(STATUS "")
 
 
