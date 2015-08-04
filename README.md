@@ -4,9 +4,9 @@ Maya Plug-in Samples (C++, Windows)
 
 Simple Maya plug-in samples to test build environments on Windows.
 
-* [**NoiseCmd**](NoiseCmd/README.md) : Simple noise command (command plug-in).
-* [**NoiseDeformer**](NoiseDeformer/README.md): Simple noise node (deformer plug-in).
-* [**LaplacianSmoother**](LaplacianSmoother/README.md): Laplacian smoothing node (deformer plug-in).
+* [**NoiseCmd**](NoiseCmd) : Simple noise command (command plug-in).
+* [**NoiseDeformer**](NoiseDeformer): Simple noise node (deformer plug-in).
+* [**LaplacianSmoother**](LaplacianSmoother): Laplacian smoothing node (deformer plug-in).
     - *Required*: [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page) library.
 
 ## Result
