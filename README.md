@@ -7,37 +7,44 @@ Simple Maya plug-in samples to test build environments on Windows.
 * **NoiseCmd** : Simple noise command (command plug-in).
 * **NoiseDeformer**: Simple noise node (deformer plug-in).
 * **LaplacianSmoother**: Laplacian smoothing node (deformer plug-in).
+    - *Required*: [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page) library.
 
 ## Result
 *Status*: Under construction.
 
 ## Installation
 
-*Note*: This program was only tested on **Windows** with **Maya2014, 2015**.
+*Note*: This program was mainly tested on **Windows** with **Maya2014, 2015**.
 **Linux** and **Mac OS** are not officially supported,
 but the following instructions might be helpful for installing on those environments.
 
 ### Dependencies.
-* Maya: Please install Maya on your Windows PC.
-* [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page): I used Eigen for linear algebra in **LaplacianSmoother** plug-in.
-    - Recommended to lactate Eigen include directory in $ENV{EXT\_LIB\_ROOT}/Eigen/${EIGEN\_VERSION}/include.
+For CMake build process:
 
-Installed libraries will be used for CMake build process.
+* Maya (version 2010 or higher)
+    - Please install Maya on your Windows PC.
+* [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page) (version 3.1 or higher)
+    - Eigen is used in **LaplacianSmoother** plug-in.
+    - Recommended to lactate Eigen include directory in `$ENV{EXT_LIB_ROOT}/Eigen/${EIGEN_VERSION}/include`.
+
+For test batch generation:
+
+* Python (version 2.7 or higher)
 
 ### Directory structure
 
 Root directory:
-
+* batch: Test batch files will be generated in this directory by `batch.py`.
 * build: CMake will generate Visual Studio solutions in this directory.
 * cmake: CMake modules.
 * **NoiseCmd**: NoiseCmd project directory.
-* **NoiseDeformer**: NoiseCmd project directory.
-* **LaplacianSmoother**: NoiseCmd project directory.
+* **NoiseDeformer**: NoiseDeformer project directory.
+* **LaplacianSmoother**: LaplacianSmoother project directory.
 
 Each project:
 
 * build: CMake will generate Visual Studio solutions in this directory.
-* plugins: Plug-in file **${PROJECT\_NAME}${MAYA\_VERSION}.mll** (e.g. NoiseDeformer2015.mll) will be built in this directory.
+* plugins: Plug-in file **`${PROJECT_NAME}${MAYA_VERSION}.mll`** (e.g. `NoiseDeformer2015.mll`) will be built in this directory.
 * src: Project source directory.
 * doxygen: doxygen setting for API document.
 
@@ -46,10 +53,12 @@ Each project:
 Each project can be easily build with CMake (version 3.0.0 or higher).
 
 #### 1.External libraries.
-* Maya: [cmake/FindMaya.cmake](cmake/FindMaya.cmake) will find the Maya include and library directories.
-    - *Note*: Assume the default installation path. (e.g. C:/Program Files/Autodesk/Maya${version})
-* Eigen: [cmake/FindEigen.cmake](cmake/FindEigen.cmake)
-    - *Note*: Assume "$ENV{EXT\_LIB\_ROOT}/Eigen/${EIGEN\_VERSION}/include" for the installation path.
+Please check the external library locations:
+
+* Maya: [`cmake/FindMaya.cmake`](cmake/FindMaya.cmake) will find the Maya include and library directories.
+    - *Note*: Assume the default installation path. (e.g. `C:/Program Files/Autodesk/Maya${MAYA_VERSION}`)
+* Eigen: [`cmake/FindEigen.cmake`](cmake/FindEigen.cmake)
+    - *Note*: Assume `"$ENV{EXT_LIB_ROOT}/Eigen/${EIGEN_VERSION}/include"` for the installation path.
 
 #### 2.Generate a Visual Studio solution with the following command.
 
@@ -92,15 +101,49 @@ Using the same version is highly recommended for stable running.
   > cmake --build ./build --config Release
 ```
 
-**${PROJECT\_NAME}${MAYA\_VERSION}.mll** will be build in the plugins directory.
+**`${PROJECT_NAME}${MAYA_VERSION}.mll`** will be build in the plugins directory.
 
 #### 4.Build all plug-in files.
 
-You can also generate a solution file for all plug-ins and build them at once.
-I also provide the same CMake mechanism for the root directory.
+You can also generate a single solution file for all plug-ins and build them at once.
+I also provide the same CMake mechanism from the root directory.
 
-*Note*: See **cmake\_generate.bat**, **cmake\_build.bat** in the root directory.
+*Note*: See [`cmake_generate.bat`](./cmake_generate.bat), [`cmake_build.bat`](cmake_build.bat) in the root directory.
 
+#### 5.Generate test batches.
+
+From batch directory, please run batch.py.
+
+``` bash
+  > python batch.py
+```
+
+This module will generate test batch files (e.g. Maya2015_EN.bat) to configure built plug-in files in Maya environment variables.
+Each bath set the following Maya environment variables for the projects before launching Maya.
+
+* `MAYA_PLUG_IN_PATH`: `${PROJECT_NAME}/plugins`
+* `MAYA_SCRIPT_PATH`: `${PROJECT_NAME}/scripts/mel`
+* `PYTHONPATH`: `${PROJECT_NAME}/scripts/python`
+* `XBMLANGPATH`: `${PROJECT_NAME}/scripts/icons`
+
+Finally, the batch launches Maya with the language setting.
+
+``` bash
+  > set MAYA_UI_LANGUAGE=en_US
+  > "C:\Program Files\Autodesk\Maya2015\bin\maya.exe"
+```
+
+## Usage
+
+1. Launch Maya from a batch file in the batch directory. e.g. `batch/Maya2015_EN.bat`.
+2. Paste the command in the Maya Python script editor.
+
+``` python
+import tool_ui
+tool_ui.toolUI()
+```
+
+You can easily access the Load Plug-in command from the UI.
 
 ## License
 
