@@ -1,4 +1,6 @@
-cd cmake
 git submodule init
-git submodule update
+cd cmake
+git checkout master
 cd ..
+git add .
+git commit -m "Update CG-CMake modules."
