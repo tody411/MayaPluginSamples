@@ -8,6 +8,8 @@ Simple Maya plug-in samples to test build environments on Windows.
 * [**NoiseDeformer**](NoiseDeformer): Simple noise node (deformer plug-in).
 * [**LaplacianSmoother**](LaplacianSmoother): Laplacian smoothing node (deformer plug-in).
     - *Required*: [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page) library.
+* [**OpenMeshCmd**](OpenMeshCmd): Simple command to test OpenMesh (command plug-in).
+    - *Required*: [OpenMesh](http://www.openmesh.org/) library.
 
 ## Result
 1. Load original mesh
@@ -31,7 +33,10 @@ For CMake build process:
     - Please install Maya on your Windows PC.
 * [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page) (version 3.1 or higher)
     - Eigen is used in **LaplacianSmoother** plug-in.
-    - Recommended to lactate Eigen include directory in `$ENV{EXT_LIB_ROOT}/Eigen/${EIGEN_VERSION}/include`.
+    - Recommended to lactate Eigen directory in `$ENV{EXT_LIB_ROOT}/Eigen/${EIGEN_VERSION}`.
+* [OpenMesh](http://www.openmesh.org/) (version 3.0 or higher)
+    - OpenMesh is used in **OpenMeshCmd** plug-in.
+    - Recommended to lactate OpenMesh directory in `$ENV{EXT_LIB_ROOT}/OpenMesh/${OPENMESH_VERSION}`.
 
 For test batch generation:
 
@@ -46,6 +51,7 @@ Root directory:
 * **NoiseCmd**: NoiseCmd project directory.
 * **NoiseDeformer**: NoiseDeformer project directory.
 * **LaplacianSmoother**: LaplacianSmoother project directory.
+* **OpenMeshCmd**: OpenMeshCmd project directory.
 
 Each project:
 
@@ -64,7 +70,17 @@ Please check the external library locations:
 * Maya: [`cmake/FindMaya.cmake`](cmake/FindMaya.cmake) will find the Maya include and library directories.
     - *Note*: Assume the default installation path. (e.g. `C:/Program Files/Autodesk/Maya${MAYA_VERSION}`)
 * Eigen: [`cmake/FindEigen.cmake`](cmake/FindEigen.cmake)
-    - *Note*: Assume `"$ENV{EXT_LIB_ROOT}/Eigen/${EIGEN_VERSION}/include"` for the installation path.
+    - *Note*: Assume `"$ENV{EXT_LIB_ROOT}/Eigen/${EIGEN_VERSION}"` for the installation path.
+* OpenMesh: [`cmake/FindOpenMesh.cmake`](cmake/FindOpenMesh.cmake)
+    - *Note*: Assume `"$ENV{EXT_LIB_ROOT}/OpenMesh/${OPENMESH_VERSION}"` for the installation path.
+
+The directory structure for each library (e.g. OpenMesh 4.1):
+
+* `"$ENV{EXT_LIB_ROOT}/OpenMesh/4.1"`: Package location.
+    - `include`: Include directory.
+    - `lib`: Library directory.
+        - `x86`: 32-bit .lib .dll file.
+        - `x64`: 64-bit .lib .dll file.
 
 #### 2.Generate a Visual Studio solution with the following command.
 

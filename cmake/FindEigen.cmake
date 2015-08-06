@@ -5,7 +5,7 @@
 #
 # Outputs:
 #  EIGEN_FOUND             Defined if a Eigen is found.
-#  EIGEN_VERSION           Version of detected Eigen (e.g. 2015).
+#  EIGEN_VERSION           Version of detected Eigen (e.g. 3.2.1).
 #
 #  EIGEN_INCLUDE_DIRS      Path to Eigen's include directories.
 
@@ -53,7 +53,7 @@ endif()
 #=======================
 # Path search list.
 #=======================
-set(_eigen_SEARCH_PATHS)
+set(_eigen_SEARCH_PATHS ${EIGEN_LOCATION})
 
 # Path search list from version search list.
 #-----------------------

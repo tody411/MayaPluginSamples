@@ -12,16 +12,21 @@ project(NoiseCmd)
 file(GLOB _project_SOURCE ${PROJECT_SOURCE_DIR}/src/*.h ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 #=======================
-# Find Maya
+# Setup External Libraries
 #=======================
-#  - Find from latest versions: find_package(Maya REQUIRED)
-#  - Specify target version: find_package(Maya 2015)
-find_package(Maya REQUIRED)
+include(SetupExtLibs)
 
 #=======================
 # Visual Studio setting
 #=======================
 include(MSVCProperties)
+
+#=======================
+# Find Maya
+#=======================
+#  - Find from latest versions: find_package(Maya REQUIRED)
+#  - Specify target version: find_package(Maya 2015)
+find_package(Maya REQUIRED)
 
 #=======================
 # Check Visual Studio versions

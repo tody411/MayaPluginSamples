@@ -12,16 +12,16 @@ project(NoiseDeformer)
 file(GLOB _project_SOURCE ${PROJECT_SOURCE_DIR}/src/*.h ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 #=======================
+# Visual Studio setting
+#=======================
+include(MSVCProperties)
+
+#=======================
 # Find Maya
 #=======================
 #  - Find from latest versions: find_package(Maya REQUIRED)
 #  - Specify target version: find_package(Maya 2015)
 find_package(Maya REQUIRED)
-
-#=======================
-# Visual Studio setting
-#=======================
-include(MSVCProperties)
 
 #=======================
 # Check Visual Studio versions

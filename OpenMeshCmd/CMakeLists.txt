@@ -8,7 +8,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake")
 #=======================
 # Project setting
 #=======================
-project(LaplacianSmoother)
+project(OpenMeshCmd)
 file(GLOB _project_SOURCE ${PROJECT_SOURCE_DIR}/src/*.h ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 #=======================
@@ -22,16 +22,16 @@ include(SetupExtLibs)
 include(MSVCProperties)
 
 #=======================
+# Find OpenMesh
+#=======================
+find_package(OpenMesh REQUIRED)
+
+#=======================
 # Find Maya
 #=======================
 #  - Find from latest versions: find_package(Maya REQUIRED)
 #  - Specify target version: find_package(Maya 2015)
 find_package(Maya REQUIRED)
-
-#=======================
-# Find Eigen
-#=======================
-find_package(Eigen REQUIRED)
 
 #=======================
 # Check Visual Studio versions
@@ -50,12 +50,12 @@ message(STATUS "")
 #=======================
 # Include setting
 #=======================
-include_directories(${MAYA_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/src)
+include_directories(${OPENMESH_INCLUDE_DIRS} ${MAYA_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/src)
 
 #=======================
 # Plug-in entry point
 #=======================
-add_library(${PROJECT_NAME} SHARED ${_project_SOURCE} )
+add_library( ${PROJECT_NAME} SHARED ${_project_SOURCE} )
 
 #=======================
 # Link setting
@@ -63,8 +63,7 @@ add_library(${PROJECT_NAME} SHARED ${_project_SOURCE} )
 #  - Link all libraries: MAYA_LIBRARIES
 #  - Link target libraries: MAYA_Foundation_LIBRARY, MAYA_OpenMaya_LIBRARY, etc.
 target_link_libraries( ${PROJECT_NAME}
-   #${MAYA_LIBRARIES}
-   ${MAYA_Foundation_LIBRARY} ${MAYA_OpenMaya_LIBRARY} ${MAYA_OpenMayaUI_LIBRARY} ${MAYA_OpenMayaAnim_LIBRARY}
+   ${MAYA_Foundation_LIBRARY} ${MAYA_OpenMaya_LIBRARY} ${MAYA_OpenMayaUI_LIBRARY} ${OPENMESH_Core_LIBRARY}
 )
 
 #=======================

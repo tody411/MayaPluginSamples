@@ -12,6 +12,8 @@ import re
 import maya.cmds as cmds
 import maya.mel as mel
 
+## directories ignored by toolDirs().
+ignore_dirs = [".git", "batch", "build", "cmake", "toolUI"]
 
 ## Window UI ID.
 window_id = 'ToolWindow'
@@ -52,10 +54,25 @@ def getMllName(tool_name):
     return res
 
 
-## Return the tool directory.
-def getTooRootlDir():
+## Return the tool root directory.
+def toolRootDir():
     return os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
+## Return the list of tool names.
+#
+#  ignore_dirs are not included in tool_names
+def toolNames():
+    dirs = os.listdir(toolRootDir())
+
+    tool_names = []
+    for tool_name in dirs:
+        if tool_name in ignore_dirs:
+            continue
+        tool_dir = os.path.join(toolRootDir() , tool_name)
+
+        if os.path.isdir(tool_dir):
+            tool_names.append(tool_name)
+    return tool_names
 
 ## Tool load command for target plug-in names and optional mel command.
 #
@@ -78,7 +95,7 @@ def toolLoadCmd(plugin_names, ui_mel=None, ui_python=None):
 #  @param    plugin_names    target plug-in names which will be loaded.
 #  @param    ui_mel          Mel command to launch tool UI.
 def toolMenue(tool_name, plugin_names, ui_mel=None, ui_python=None):
-    tool_root_dir = getTooRootlDir()
+    tool_root_dir = toolRootDir()
     print "Tool Root",tool_root_dir
     tool_dir = tool_root_dir + '/' + tool_name
 
@@ -98,8 +115,13 @@ def toolMenue(tool_name, plugin_names, ui_mel=None, ui_python=None):
 ## Create  Tool UI.
 def toolUI():
     cmds.window (window_id, title='Maya Tools', menuBar=True, toolbox=True, widthHeight=[350, 80])
-    toolMenue('NoiseCmd', [getMllName('NoiseCmd')])
-    toolMenue('NoiseDeformer', [getMllName('NoiseDeformer')])
-    toolMenue('LaplacianSmoother',  [getMllName('LaplacianSmoother')])
+
+    for tool_name in toolNames():
+        toolMenue(tool_name, [getMllName(tool_name)])
+
+#     toolMenue('NoiseCmd', [getMllName('NoiseCmd')])
+#     toolMenue('NoiseDeformer', [getMllName('NoiseDeformer')])
+#     toolMenue('LaplacianSmoother',  [getMllName('LaplacianSmoother')])
+#     toolMenue('OpenMeshCmd',  [getMllName('OpenMeshCmd')])
     cmds.showWindow (window_id)
 
