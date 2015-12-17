@@ -33,10 +33,10 @@ For CMake build process:
     - Please install Maya on your Windows PC.
 * [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page) (version 3.1 or higher)
     - Eigen is used in **LaplacianSmoother** plug-in.
-    - Recommended to lactate Eigen directory in `$ENV{EXT_LIB_ROOT}/Eigen/${EIGEN_VERSION}`.
+    - Recommended to locate Eigen directory in `$ENV{EXT_LIB_ROOT}/Eigen/${EIGEN_VERSION}`.
 * [OpenMesh](http://www.openmesh.org/) (version 3.0 or higher)
     - OpenMesh is used in **OpenMeshCmd** plug-in.
-    - Recommended to lactate OpenMesh directory in `$ENV{EXT_LIB_ROOT}/OpenMesh/${OPENMESH_VERSION}`.
+    - Recommended to locate OpenMesh directory in `$ENV{EXT_LIB_ROOT}/OpenMesh/${OPENMESH_VERSION}`.
 
 For test batch generation:
 
